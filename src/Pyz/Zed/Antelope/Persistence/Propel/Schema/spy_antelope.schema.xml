@@ -11,9 +11,10 @@
         <column name="weight" type="INTEGER"  required="true" />
         <column name="type_id" type="INTEGER" required="true"/>
         <column name="location_id" type="INTEGER" required="true"/>
+        <column name="idAntelope" autoIncrement="true" required="true"
+                primaryKey="true" type="INTEGER"/>
         <behavior name="timestampable"/>
         <behavior name="event"/>
-
         <foreign-key foreignTable="pyz_antelope_location" name="pyz_antelope-fk_antelope_location">
             <reference local="location_id" foreign="idAntelopeLocation"/>
         </foreign-key>
@@ -21,7 +22,6 @@
             <reference local="type_id" foreign="idAntelopeType"/>
         </foreign-key>
 
-        <column name="idAntelope" autoIncrement="true" required="true"
-                primaryKey="true" type="INTEGER"/>
+
     </table>
 </database>
