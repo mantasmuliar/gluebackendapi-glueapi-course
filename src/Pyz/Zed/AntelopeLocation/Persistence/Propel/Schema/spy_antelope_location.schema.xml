@@ -5,6 +5,8 @@
     <column name="latitude" type="FLOAT" required = "true"/>
     <column name="longitude" type="FLOAT" required = "true"/>
     <column name="description" type="LONGVARCHAR"/>
+    <behavior name="timestampable"/>
+    <behavior name="event"/>
     <column name="idAntelopeLocation" autoIncrement="true" required="true" primaryKey="true" type="INTEGER"/>
 </table>
 </database>
