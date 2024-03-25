@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Antelope\Persistence;
 
-use Generated\Shared\Transfer\AntelopeCollectionTranfer;
+use Generated\Shared\Transfer\AntelopeCollectionTransfer;
 use Spryker\Zed\Kernel\Persistence\AbstractRepository;
 
 /**
@@ -15,10 +15,8 @@ use Spryker\Zed\Kernel\Persistence\AbstractRepository;
  */
 class AntelopeRepository extends AbstractRepository implements AntelopeRepositoryInterface
 {
-    /**
-     * @return \Pyz\Zed\Antelope\Persistence\Generated\Shared\Transfer\AntelopeCollectionTranfer
-     */
-    public function getAntelopeCollection(): AntelopeCollectionTranfer
+
+    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeCollectionTransfer
     {
     }
 }

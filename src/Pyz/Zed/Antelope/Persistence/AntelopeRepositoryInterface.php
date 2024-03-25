@@ -7,12 +7,12 @@
 
 namespace Pyz\Zed\Antelope\Persistence;
 
-use Generated\Shared\Transfer\AntelopeCollectionTranfer;
+
+
+use Generated\Shared\Transfer\AntelopeCollectionTransfer;
 
 interface AntelopeRepositoryInterface
 {
-    /**
-     * @return \Pyz\Zed\Antelope\Persistence\Generated\Shared\Transfer\AntelopeCollectionTranfer
-     */
-    public function getAntelopeCollection(): AntelopeCollectionTranfer;
+
+    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeCollectionTransfer;
 }
