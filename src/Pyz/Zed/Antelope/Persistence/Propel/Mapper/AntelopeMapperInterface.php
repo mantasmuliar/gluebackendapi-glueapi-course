@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Antelope\Persistence\Propel\Mapper;
 
 use Generated\Shared\Transfer\AntelopeCollectionTransfer;
@@ -16,11 +21,11 @@ interface AntelopeMapperInterface
 
     public function mapAntelopeCollectionToAntelopeCollectionTransfer(
         ObjectCollection $antelopeCollection,
-        AntelopeCollectionTransfer $antelopeCollectionTransfer
+        AntelopeCollectionTransfer $antelopeCollectionTransfer,
     ): AntelopeCollectionTransfer;
 
     public function mapAntelopeEntityToAntelopeTransfer(
         PyzAntelope $antelope,
-        AntelopeTransfer $antelopeTransfer
+        AntelopeTransfer $antelopeTransfer,
     ): AntelopeTransfer;
 }

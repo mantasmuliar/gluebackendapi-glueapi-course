@@ -12,6 +12,5 @@ use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
 
 interface AntelopeRepositoryInterface
 {
-    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer
-    ): AntelopeCollectionTransfer;
+    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeCollectionTransfer;
 }
