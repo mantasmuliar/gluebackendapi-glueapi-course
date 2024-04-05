@@ -1,0 +1,26 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% block content %}
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Age</th>
+            <th>location</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for antelope in antelopes %}
+            <tr>
+                <td>{{ antelope.idAntelope }}</td>
+                <td>{{ antelope.name }}</td>
+                <td>{{ antelope.color }}</td>
+                <td>{{ antelope.age }}</td>
+                <td>{{ antelope.location.locationName }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
