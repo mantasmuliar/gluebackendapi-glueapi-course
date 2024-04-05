@@ -16,9 +16,11 @@ use Spryker\Zed\Kernel\Persistence\AbstractRepository;
  */
 class AntelopeRepository extends AbstractRepository implements AntelopeRepositoryInterface
 {
-    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeCollectionTransfer
-    {
+    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer
+    ): AntelopeCollectionTransfer {
         $antelopeEntities = $this->getFactory()->createAntelopeQuery();
+        $antelopeEntities->joinWithPyzAntelopeLocation()
+            ->joinWithPyzAntelopeType();
         $antelopeCollection = $antelopeEntities->find();
 
         return $this->getFactory()->createAntelopeMapper()

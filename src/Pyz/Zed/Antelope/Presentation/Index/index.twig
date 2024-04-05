@@ -4,11 +4,13 @@
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
-            <th>id</th>
+            <th>Id</th>
             <th>Name</th>
             <th>Color</th>
             <th>Age</th>
-            <th>location</th>
+            <th>Type</th>
+            <th>Location</th>
+
         </tr>
         </thead>
         <tbody>
@@ -18,7 +20,9 @@
                 <td>{{ antelope.name }}</td>
                 <td>{{ antelope.color }}</td>
                 <td>{{ antelope.age }}</td>
+                <td>{{ antelope.type.typeName }}</td>
                 <td>{{ antelope.location.locationName }}</td>
+
             </tr>
         {% endfor %}
         </tbody>

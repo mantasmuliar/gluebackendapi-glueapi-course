@@ -10,7 +10,22 @@
         <property name="age" type="int"/>
         <property name="weight" type="float"/>
         <property name="gender" type="string"/>
+        <property name="location" type="AntelopeLocation"/>
+        <property name="type" type="AntelopeType"/>
 
+
+    </transfer>
+    <transfer name="AntelopeType">
+        <property name="typeName" type="string"/>
+        <property name="description" type="string"/>
+        <property name="idAntelopeType" type="int"/>
+    </transfer>
+    <transfer name="AntelopeLocation">
+        <property name="locationName" type="string"/>
+        <property name="description" type="string"/>
+        <property name="idAntelopeLocation" type="int"/>
+        <property name="latitude" type="float"/>
+        <property name="longitude" type="float"/>
     </transfer>
     <transfer name="AntelopeCollection">
         <property name="antelopes" type="Antelope[]" singular="antelope"/>
