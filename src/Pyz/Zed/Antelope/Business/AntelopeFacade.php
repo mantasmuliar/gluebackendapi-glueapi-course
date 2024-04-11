@@ -13,18 +13,19 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
  * @method \Pyz\Zed\Antelope\Business\AntelopeBusinessFactory getFactory()
+ * @method \Pyz\Zed\Antelope\Persistence\AntelopeRepositoryInterface getRepository()
  */
 class AntelopeFacade extends AbstractFacade implements AntelopeFacadeInterface
 {
     /**
      * {@inheritDoc}
      *
-     * @return \Pyz\Zed\Antelope\Business\AntelopeCollectionTransfer
      * @api
      *
+     * @return \Pyz\Zed\Antelope\Business\AntelopeCollectionTransfer
      */
-    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer
-    ): AntelopeCollectionTransfer {
+    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeCollectionTransfer
+    {
         return $this->getFactory()->createAntelopeReader()->getAntelopeCollection($antelopeCriteriaTransfer);
     }
 }

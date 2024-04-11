@@ -1,11 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of the Spryker Commerce OS.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
+
+declare(strict_types=1);
 
 namespace Pyz\Zed\Antelope\Persistence\Propel\Mapper;
 
@@ -44,14 +44,19 @@ class AntelopeMapper implements AntelopeMapperInterface
         AntelopeTransfer $antelopeTransfer,
     ): AntelopeTransfer {
         $antelopeTransfer->fromArray($antelope->toArray(), true);
-        $type = $this->mapAntelopeTypeEntityToAntelopeTypeTransfer($antelope->getPyzAntelopeType(),
-            new AntelopeTypeTransfer());
+        $type = $this->mapAntelopeTypeEntityToAntelopeTypeTransfer(
+            $antelope->getPyzAntelopeType(),
+            new AntelopeTypeTransfer(),
+        );
 
         $antelopeTransfer->setType($type);
-        $location = $this->mapAntelopeLocationEntityToAntelopeLocationTransfer($antelope->getPyzAntelopeLocation(),
-            new AntelopeLocationTransfer());
+        $location = $this->mapAntelopeLocationEntityToAntelopeLocationTransfer(
+            $antelope->getPyzAntelopeLocation(),
+            new AntelopeLocationTransfer(),
+        );
 
         $antelopeTransfer->setLocation($location);
+
         return $antelopeTransfer;
     }
 

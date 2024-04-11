@@ -13,10 +13,9 @@ use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
 interface AntelopeFacadeInterface
 {
     /**
-     * @return \Pyz\Zed\Antelope\Business\AntelopeCollectionTransfer
      * @api
      *
+     * @return \Pyz\Zed\Antelope\Business\AntelopeCollectionTransfer
      */
-    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer
-    ): AntelopeCollectionTransfer;
+    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeCollectionTransfer;
 }
