@@ -114,7 +114,7 @@ class GlueBackendApiApplicationDependencyProvider extends SprykerGlueBackendApiA
             new PickingListStartPickingBackendResourcePlugin(),
             new PickingListItemsBackendResourcePlugin(),
             new WarehouseUserAssignmentsBackendResourcePlugin(),
-            new AntelopesBackendApiResourcePlugin()
+            new AntelopesBackendApiResourcePlugin(),
         ];
     }
 

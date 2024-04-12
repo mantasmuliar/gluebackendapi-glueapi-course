@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Glue\AntelopesBackendApi\Plugin;
 
 use Generated\Shared\Transfer\AntelopesBackendApiAttributesTransfer;
@@ -12,10 +17,9 @@ use Spryker\Glue\GlueJsonApiConventionExtension\Dependency\Plugin\JsonApiResourc
 
 class AntelopesBackendApiResourcePlugin extends AbstractResourcePlugin implements JsonApiResourceInterface
 {
-
-    /**
-     * @inheritDoc
-     */
+ /**
+  * @inheritDoc
+  */
     public function getType(): string
     {
         return AntelopesBackendApiConfig::RESOURCE_ANTELOPES;
@@ -38,13 +42,14 @@ class AntelopesBackendApiResourcePlugin extends AbstractResourcePlugin implement
         $method = new GlueResourceMethodConfigurationTransfer();
         $attributes = AntelopesBackendApiAttributesTransfer::class;
         $method->setAttributes($attributes);
-       
+
         $collection->setGetCollection($method);
 
-        $collection->setGet((new GlueResourceMethodConfigurationTransfer)->setAttributes($attributes))
-            ->setPost((new GlueResourceMethodConfigurationTransfer)->setAttributes($attributes))
-            ->setPatch((new GlueResourceMethodConfigurationTransfer)->setAttributes($attributes))
-            ->setDelete(new GlueResourceMethodConfigurationTransfer);
+        $collection->setGet((new GlueResourceMethodConfigurationTransfer())->setAttributes($attributes))
+            ->setPost((new GlueResourceMethodConfigurationTransfer())->setAttributes($attributes))
+            ->setPatch((new GlueResourceMethodConfigurationTransfer())->setAttributes($attributes))
+            ->setDelete(new GlueResourceMethodConfigurationTransfer());
+
         return $collection;
     }
 }
