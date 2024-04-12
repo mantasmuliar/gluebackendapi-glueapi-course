@@ -1,17 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of the Spryker Commerce OS.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Glue\AntelopesBackendApi;
+namespace Pyz\Glue\AntelopesBackendApi\Controller;
 
 use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
 use Generated\Shared\Transfer\AntelopesBackendApiAttributesTransfer;
 use Generated\Shared\Transfer\GlueRequestTransfer;
 use Generated\Shared\Transfer\GlueResourceTransfer;
 use Generated\Shared\Transfer\GlueResponseTransfer;
+use Pyz\Glue\AntelopesBackendApi\AntelopesBackendApiConfig;
 use Spryker\Glue\Kernel\Backend\Controller\AbstractController;
 
 /**
@@ -38,4 +41,6 @@ class AntelopesResourceController extends AbstractController
 
         return $responseTransfer;
     }
+
+   
 }
