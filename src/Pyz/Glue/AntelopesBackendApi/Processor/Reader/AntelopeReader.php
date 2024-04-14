@@ -7,6 +7,7 @@
 
 namespace Pyz\Glue\AntelopesBackendApi\Processor\Reader;
 
+use Generated\Shared\Transfer\AntelopeConditionTransfer;
 use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
 use Generated\Shared\Transfer\GlueRequestTransfer;
 use Generated\Shared\Transfer\GlueResponseTransfer;
@@ -24,8 +25,12 @@ class AntelopeReader implements AntelopeReaderInterface
     public function getAntelopeCollection(GlueRequestTransfer $glueRequestTransfer): GlueResponseTransfer
     {
         $antelopeCriteriaTransfer = new AntelopeCriteriaTransfer();
+        $conditions = new AntelopeConditionTransfer();
+        $antelopeCriteriaTransfer->setPagination($glueRequestTransfer->getPagination())
+            ->setSortCollection($glueRequestTransfer->getSortings())
+            ->setAntelopeConditions($conditions);
         $antelopeCollectionTransfer = $this->antelopeFacade
-        ->getAntelopeCollection($antelopeCriteriaTransfer);
+            ->getAntelopeCollection($antelopeCriteriaTransfer);
 
         return $this->antelopeResponseBuilder->createAntelopeResponse($antelopeCollectionTransfer);
     }

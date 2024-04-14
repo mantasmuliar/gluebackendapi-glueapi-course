@@ -23,7 +23,7 @@ class AntelopeResponseBuilder implements AntelopeResponseBuilderInterface
             $resource = $this->mapAntelopeDtoToGlueResourceTransfer($antelope);
             $responseTransfer->addResource($resource);
         }
-
+        $responseTransfer->setPagination($antelopeCollectionTransfer->getPagination());
         return $responseTransfer;
     }
 
