@@ -24,6 +24,7 @@ class AntelopeResponseBuilder implements AntelopeResponseBuilderInterface
             $responseTransfer->addResource($resource);
         }
         $responseTransfer->setPagination($antelopeCollectionTransfer->getPagination());
+
         return $responseTransfer;
     }
 
