@@ -18,8 +18,13 @@ use Spryker\Glue\Kernel\Backend\Controller\AbstractController;
  */
 class AntelopesResourceController extends AbstractController
 {
-    public function getCollectionAction(GlueRequestTransfer $glueRequestTransfer): GlueResponseTransfer
-    {
+    public function getCollectionAction(GlueRequestTransfer $glueRequestTransfer
+    ): GlueResponseTransfer {
         return $this->getFactory()->createAntelopesReader()->getAntelopeCollection($glueRequestTransfer);
+    }
+
+    public function getAction(GlueRequestTransfer $glueRequestTransfer
+    ): GlueResponseTransfer {
+        return $this->getFactory()->createAntelopesReader()->getAntelope($glueRequestTransfer);
     }
 }

@@ -24,17 +24,38 @@ class AntelopeReader implements AntelopeReaderInterface
     ) {
     }
 
-    public function getAntelopeCollection(GlueRequestTransfer $glueRequestTransfer): GlueResponseTransfer
-    {
+    public function getAntelope(GlueRequestTransfer $glueRequestTransfer
+    ): GlueResponseTransfer {
         $antelopeCriteriaTransfer = new AntelopeCriteriaTransfer();
         $conditions = new AntelopeConditionTransfer();
-        $this->antelopesExpander->expandWithFilters($conditions, $glueRequestTransfer);
-        $antelopeCriteriaTransfer->setPagination($glueRequestTransfer->getPagination())
-            ->setSortCollection($glueRequestTransfer->getSortings())
-            ->setAntelopeConditions($conditions);
+        $conditions->setIdAntelope((int)$glueRequestTransfer->getResource()?->getId());
+        $antelopeCriteriaTransfer->setAntelopeConditions($conditions);
+        return $this->getAntelopeCollectionTransfer($antelopeCriteriaTransfer);
+    }
+
+    /**
+     * @param AntelopeCriteriaTransfer $antelopeCriteriaTransfer
+     * @return GlueResponseTransfer
+     */
+    public function getAntelopeCollectionTransfer(
+        AntelopeCriteriaTransfer $antelopeCriteriaTransfer
+    ): GlueResponseTransfer {
         $antelopeCollectionTransfer = $this->antelopeFacade
             ->getAntelopeCollection($antelopeCriteriaTransfer);
 
         return $this->antelopeResponseBuilder->createAntelopeResponse($antelopeCollectionTransfer);
+    }
+
+    public function getAntelopeCollection(
+        GlueRequestTransfer $glueRequestTransfer
+    ): GlueResponseTransfer {
+        $antelopeCriteriaTransfer = new AntelopeCriteriaTransfer();
+        $conditions = new AntelopeConditionTransfer();
+        $this->antelopesExpander->expandWithFilters($conditions,
+            $glueRequestTransfer);
+        $antelopeCriteriaTransfer->setPagination($glueRequestTransfer->getPagination())
+            ->setSortCollection($glueRequestTransfer->getSortings())
+            ->setAntelopeConditions($conditions);
+        return $this->getAntelopeCollectionTransfer($antelopeCriteriaTransfer);
     }
 }
