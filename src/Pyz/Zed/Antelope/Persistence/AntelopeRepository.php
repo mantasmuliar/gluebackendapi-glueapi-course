@@ -13,21 +13,25 @@ use Generated\Shared\Transfer\AntelopeCollectionTransfer;
 use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
 use Generated\Shared\Transfer\PaginationTransfer;
 use Orm\Zed\Antelope\Persistence\PyzAntelopeQuery;
+use Propel\Runtime\ActiveQuery\Criteria as CriteriaAlias;
 use Spryker\Zed\Kernel\Persistence\AbstractRepository;
 
 /**
  * @method \Pyz\Zed\Antelope\Persistence\AntelopePersistenceFactory getFactory()
  */
-class AntelopeRepository extends AbstractRepository implements AntelopeRepositoryInterface
+class AntelopeRepository extends AbstractRepository implements
+    AntelopeRepositoryInterface
 {
-    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeCollectionTransfer
-    {
+    public function getAntelopeCollection(
+        AntelopeCriteriaTransfer $antelopeCriteriaTransfer
+    ): AntelopeCollectionTransfer {
         $antelopeEntities = $this->getFactory()->createAntelopeQuery();
         $antelopeEntities->joinWithPyzAntelopeLocation()
             ->joinWithPyzAntelopeType();
         $antelopeCollectionTransfer = new AntelopeCollectionTransfer();
         $paginationTransfer = $antelopeCriteriaTransfer->getPagination();
         $this->applySearch($antelopeEntities, $antelopeCriteriaTransfer);
+        $this->applySorting($antelopeEntities, $antelopeCriteriaTransfer);
         if ($paginationTransfer) {
             $this->applyPagination($paginationTransfer, $antelopeEntities);
         }
@@ -42,9 +46,7 @@ class AntelopeRepository extends AbstractRepository implements AntelopeRepositor
             );
     }
 
-    /**
-     * @return void
-     */
+
     private function applySearch(
         PyzAntelopeQuery $antelopeEntities,
         AntelopeCriteriaTransfer $antelopeCriteriaTransfer,
@@ -71,9 +73,19 @@ class AntelopeRepository extends AbstractRepository implements AntelopeRepositor
         }
     }
 
-    /**
-     * @return void
-     */
+
+    protected function applySorting(
+        PyzAntelopeQuery $antelopeEntities,
+        AntelopeCriteriaTransfer $antelopeCriteriaTransfer,
+    ): void {
+        foreach ($antelopeCriteriaTransfer->getSortCollection() as $sortTransfer) {
+            $columnName = $sortTransfer->getField();
+            $order = $sortTransfer->getIsAscending() ? CriteriaAlias::ASC : CriteriaAlias::DESC;
+            $antelopeEntities->orderBy($columnName, $order);
+        }
+    }
+
+    
     private function applyPagination(
         PaginationTransfer $paginationTransfer,
         PyzAntelopeQuery $antelopeEntities,
