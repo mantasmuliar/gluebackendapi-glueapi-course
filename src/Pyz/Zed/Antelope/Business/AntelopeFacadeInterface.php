@@ -9,13 +9,20 @@ namespace Pyz\Zed\Antelope\Business;
 
 use Generated\Shared\Transfer\AntelopeCollectionTransfer;
 use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
+use Generated\Shared\Transfer\AntelopeTransfer;
 
 interface AntelopeFacadeInterface
 {
     /**
+     * @return \Pyz\Zed\Antelope\Business\AntelopeCollectionTransfer
      * @api
      *
-     * @return \Pyz\Zed\Antelope\Business\AntelopeCollectionTransfer
      */
-    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeCollectionTransfer;
+    public function getAntelopeCollection(
+        AntelopeCriteriaTransfer $antelopeCriteriaTransfer
+    ): AntelopeCollectionTransfer;
+
+    public function createAntelope(
+        AntelopeTransfer $antelopeTransfer
+    ): AntelopeTransfer;
 }
