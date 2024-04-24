@@ -25,4 +25,6 @@ interface AntelopeFacadeInterface
     public function createAntelope(
         AntelopeTransfer $antelopeTransfer
     ): AntelopeTransfer;
+
+    public function updateAntelope(AntelopeTransfer $antelopeTransfer);
 }

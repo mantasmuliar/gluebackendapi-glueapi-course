@@ -16,6 +16,8 @@ use Pyz\Glue\AntelopesBackendApi\Processor\Reader\AntelopeReader;
 use Pyz\Glue\AntelopesBackendApi\Processor\Reader\AntelopeReaderInterface;
 use Pyz\Glue\AntelopesBackendApi\Processor\ResponseBuilder\AntelopeResponseBuilder;
 use Pyz\Glue\AntelopesBackendApi\Processor\ResponseBuilder\AntelopeResponseBuilderInterface;
+use Pyz\Glue\AntelopesBackendApi\Updater\AntelopeUpdater;
+use Pyz\Glue\AntelopesBackendApi\Updater\AntelopeUpdaterInterface;
 use Pyz\Zed\Antelope\Business\AntelopeFacadeInterface;
 use Spryker\Glue\Kernel\Backend\AbstractFactory;
 
@@ -57,5 +59,12 @@ class AntelopesBackendApiFactory extends AbstractFactory
     public function createAntelopeMapper(): AntelopeMapperInterface
     {
         return new AntelopeMapper();
+    }
+
+    public function createAntelopeUpdater(): AntelopeUpdaterInterface
+    {
+        return new AntelopeUpdater($this->getAntelopeFacade(),
+            $this->createAntelopeResponseBuilder(),
+            $this->createAntelopeMapper());
     }
 }

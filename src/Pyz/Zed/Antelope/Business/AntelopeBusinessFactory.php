@@ -7,8 +7,10 @@
 
 namespace Pyz\Zed\Antelope\Business;
 
-use Pyz\Zed\Antelope\Business\Antelope\Reader\AntelopeReader;
-use Pyz\Zed\Antelope\Business\Antelope\Reader\AntelopeReaderInterface;
+use Pyz\Zed\Antelope\Business\Reader\AntelopeReader;
+use Pyz\Zed\Antelope\Business\Reader\AntelopeReaderInterface;
+use Pyz\Zed\Antelope\Business\Updater\AntelopeUpdater;
+use Pyz\Zed\Antelope\Business\Updater\AntelopeUpdaterInterface;
 use Pyz\Zed\Antelope\Business\Writer\AntelopeWriter;
 use Pyz\Zed\Antelope\Business\Writer\AntelopeWriterInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
@@ -21,7 +23,7 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 class AntelopeBusinessFactory extends AbstractBusinessFactory
 {
     /**
-     * @return \Pyz\Zed\Antelope\Business\Antelope\Reader\AntelopeReaderInterface
+     * @return \Pyz\Zed\Antelope\Business\Reader\AntelopeReaderInterface
      */
     public function createAntelopeReader(): AntelopeReaderInterface
     {
@@ -31,5 +33,10 @@ class AntelopeBusinessFactory extends AbstractBusinessFactory
     public function createAntelopeWriter(): AntelopeWriterInterface
     {
         return new AntelopeWriter($this->getEntityManager());
+    }
+
+    public function createAntelopeUpdater(): AntelopeUpdaterInterface
+    {
+        return new AntelopeUpdater($this->getEntityManager());
     }
 }

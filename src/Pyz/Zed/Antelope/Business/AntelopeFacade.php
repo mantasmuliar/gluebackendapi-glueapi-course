@@ -33,6 +33,11 @@ class AntelopeFacade extends AbstractFacade implements AntelopeFacadeInterface
         return $this->getFactory()->createAntelopeReader()->getAntelopeCollection($antelopeCriteriaTransfer);
     }
 
+    public function updateAntelope(AntelopeTransfer $antelopeTransfer
+    ): AntelopeTransfer {
+        return $this->getFactory()->createAntelopeUpdater()->updateAntelope($antelopeTransfer);
+    }
+
     public function createAntelope(AntelopeTransfer $antelopeTransfer
     ): AntelopeTransfer {
         return $this->getFactory()->createAntelopeWriter()->createAntelope($antelopeTransfer);
