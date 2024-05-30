@@ -7,6 +7,8 @@
 
 namespace Pyz\Zed\Antelope\Business;
 
+use Pyz\Zed\Antelope\Business\Deleter\AntelopeDeleter;
+use Pyz\Zed\Antelope\Business\Deleter\AntelopeDeleterInterface;
 use Pyz\Zed\Antelope\Business\Reader\AntelopeReader;
 use Pyz\Zed\Antelope\Business\Reader\AntelopeReaderInterface;
 use Pyz\Zed\Antelope\Business\Updater\AntelopeUpdater;
@@ -38,5 +40,10 @@ class AntelopeBusinessFactory extends AbstractBusinessFactory
     public function createAntelopeUpdater(): AntelopeUpdaterInterface
     {
         return new AntelopeUpdater($this->getEntityManager());
+    }
+
+    public function createAntelopeDeleter(): AntelopeDeleterInterface
+    {
+        return new AntelopeDeleter($this->getEntityManager());
     }
 }

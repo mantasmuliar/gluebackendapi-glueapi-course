@@ -45,4 +45,9 @@ class AntelopesResourceController extends AbstractController
         return $this->getFactory()->createAntelopeUpdater()->updateAntelope($antelopesBackendApiAttributesTransfer,
             $glueRequestTransfer);
     }
+
+    public function deleteAction(GlueRequestTransfer $glueRequestTransfer
+    ): GlueResponseTransfer {
+        return $this->getFactory()->createAntelopeDeleter()->deleteAntelope($glueRequestTransfer);
+    }
 }

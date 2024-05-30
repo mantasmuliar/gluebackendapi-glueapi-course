@@ -8,6 +8,7 @@
 namespace Pyz\Glue\AntelopesBackendApi;
 
 use Pyz\Glue\AntelopesBackendApi\Processor\Creator\AntelopeCreator;
+use Pyz\Glue\AntelopesBackendApi\Processor\Deleter\AntelopeDeleter;
 use Pyz\Glue\AntelopesBackendApi\Processor\Expander\AntelopesExpander;
 use Pyz\Glue\AntelopesBackendApi\Processor\Expander\AntelopesExpanderInterface;
 use Pyz\Glue\AntelopesBackendApi\Processor\Mapper\AntelopeMapper;
@@ -64,6 +65,13 @@ class AntelopesBackendApiFactory extends AbstractFactory
     public function createAntelopeUpdater(): AntelopeUpdaterInterface
     {
         return new AntelopeUpdater($this->getAntelopeFacade(),
+            $this->createAntelopeResponseBuilder(),
+            $this->createAntelopeMapper());
+    }
+
+    public function createAntelopeDeleter()
+    {
+        return new AntelopeDeleter($this->getAntelopeFacade(),
             $this->createAntelopeResponseBuilder(),
             $this->createAntelopeMapper());
     }

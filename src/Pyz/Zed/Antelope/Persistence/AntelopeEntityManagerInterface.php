@@ -10,4 +10,8 @@ interface AntelopeEntityManagerInterface
     ): AntelopeTransfer;
 
     public function updateAntelope(AntelopeTransfer $antelopeTransfer);
+
+    public function deleteAntelope(
+        AntelopeTransfer $antelopeTransfer
+    );
 }
