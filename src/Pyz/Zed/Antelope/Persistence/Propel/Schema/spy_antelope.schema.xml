@@ -16,7 +16,7 @@
         <behavior name="timestampable"/>
         <behavior name="event"/>
         <foreign-key foreignTable="pyz_antelope_location" name="pyz_antelope-fk_antelope_location">
-            <reference local="location_id" foreign="idAntelopeLocation"/>
+            <reference local="location_id" foreign="id_antelope_location"/>
         </foreign-key>
         <foreign-key foreignTable="pyz_antelope_type" name="pyz_antelope-fk_antelope_type">
             <reference local="type_id" foreign="idAntelopeType"/>

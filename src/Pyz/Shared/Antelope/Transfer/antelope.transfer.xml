@@ -12,8 +12,6 @@
         <property name="gender" type="string"/>
         <property name="location" type="AntelopeLocation"/>
         <property name="type" type="AntelopeType"/>
-
-
     </transfer>
     <transfer name="AntelopeType">
         <property name="typeName" type="string"/>
@@ -43,7 +41,6 @@
         <property name="lastPage" type="int"/>
         <property name="nextPage" type="int"/>
         <property name="previousPage" type="int"/>
-
     </transfer>
     <transfer name="AntelopeCondition">
         <property name="antelopeIds" singular="antelopeId" type="int[]"/>
@@ -61,5 +58,19 @@
     <transfer name="Sort">
         <property name="field" type="string"/>
         <property name="isAscending" type="bool"/>
+    </transfer>
+    <transfer name="AntelopeLocationCollection">
+        <property name="antelopeLocations" type="AntelopeLocation[]" singular="antelopeLocation"/>
+        <property name="pagination" type="Pagination"/>
+    </transfer>
+    <transfer name="AntelopeLocationCriteria">
+        <property name="antelopeLocationCondition" type="AntelopeLocationCondition"/>
+        <property name="sortCollection" type="Sort[]"/>
+        <property name="pagination" type="Pagination"/>
+    </transfer>
+    <transfer name="AntelopeLocationCondition">
+        <property name="locationIds" singular="locationId" type="int[]"/>
+        <property name="idAntelopeLocation" type="int"/>
+        <property name="locationName" type="string"/>
     </transfer>
 </transfers>

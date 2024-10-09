@@ -220,6 +220,7 @@
         "spryker/warehouse-users-backend-api": "^1.1.0",
         "spryker/warehouses-backend-api": "^1.0.0",
         "spryker/wishlists-rest-api": "^1.6.2",
+        "symfony/filesystem": "^5.2.1 || 6.4.0",
         "symfony/http-kernel": "^6.4.6"
     },
     "require-dev": {
